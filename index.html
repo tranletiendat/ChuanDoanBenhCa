@@ -1,0 +1,31 @@
+<link rel="stylesheeet" href="css/style.css"
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chẩn Đoán Bệnh Cá</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Chẩn Đoán Bệnh Cá</h1>
+    </header>
+    <main>
+        <section class="input-section">
+            <label for="symptoms">Nhập các triệu chứng của cá:</label>
+            <textarea id="symptoms" rows="4" placeholder="Ví dụ: cá bị mất màu, nổi bụng..."></textarea>
+            <button onclick="diagnose()">Chẩn Đoán</button>
+        </section>
+        <section class="result-section">
+            <h2>Kết Quả Chẩn Đoán</h2>
+            <p id="result">Kết quả sẽ hiển thị tại đây.</p>
+        </section>
+    <script src=".\ChuanDoanBenhCa\script.js"></script>
+    </main>
+    <footer>
+        <p>&copy; Chẩn Đoán Bệnh Cá Trực Tiếp Tại Bến Tre</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
