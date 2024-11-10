@@ -15,25 +15,28 @@ namespace ChanDoanBenhCa.Controllers
 
         public IActionResult Index()
         {
-            var data = _quanLyBenhCaContext.NguoiDung.ToList();
+            var data = _quanLyBenhCaContext.NguoiDung?.ToList();
             return View(data);
         }
 
-        // GET: NguoiDung/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: NguoiDung/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TenNd,MatKhau,QuyenNguoiDung")] NguoiDung NguoiDung)
+        public async Task<IActionResult> Create(NguoiDung NguoiDung)
         {
             if (ModelState.IsValid)
             {
+                bool exists = _quanLyBenhCaContext.NguoiDung!.Any(e => e.TenNd == NguoiDung.TenNd);
+                if (exists == true)
+                {
+                    ModelState.AddModelError("", "Tên người dùng đã tồn tại!!!");
+                    return View(NguoiDung);
+                }
                 // Kiểm tra và lấy giá trị MaNd mới
-                int maxMaNd = await _quanLyBenhCaContext.NguoiDung.MaxAsync(u => u.MaNd);
+                int maxMaNd = await _quanLyBenhCaContext.NguoiDung!.MaxAsync(u => u.MaNd);
                 NguoiDung.MaNd = maxMaNd + 1;
                 _quanLyBenhCaContext.Add(NguoiDung);
                 await _quanLyBenhCaContext.SaveChangesAsync();
@@ -44,13 +47,12 @@ namespace ChanDoanBenhCa.Controllers
 
         public ActionResult Edit(int? id)
         {
-            var NguoiDung = _quanLyBenhCaContext.NguoiDung.Where(n => n.MaNd == id).FirstOrDefault();
+            var NguoiDung = _quanLyBenhCaContext.NguoiDung!.Where(n => n.MaNd == id).FirstOrDefault();
             return View(NguoiDung);
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("TenNd,MatKhau,QuyenNguoiDung")] NguoiDung NguoiDung)
+        public async Task<IActionResult> Edit(int id, NguoiDung NguoiDung)
         {
             if (ModelState.IsValid)
             {
@@ -75,7 +77,7 @@ namespace ChanDoanBenhCa.Controllers
                         return View(NguoiDung);
                     }
                     //Tìm đối tượng cần sửa
-                    var EditModel = _quanLyBenhCaContext.NguoiDung.Where(n => n.MaNd == id).FirstOrDefault();
+                    var EditModel = _quanLyBenhCaContext.NguoiDung!.Where(n => n.MaNd == id).FirstOrDefault();
                     EditModel!.TenNd = NguoiDung.TenNd;
                     EditModel.MatKhau = NguoiDung.MatKhau;
                     EditModel.QuyenNguoiDung = NguoiDung.QuyenNguoiDung;
@@ -100,15 +102,15 @@ namespace ChanDoanBenhCa.Controllers
 
         public ActionResult Delete(int Id)
         {
-            var nguoiDung = _quanLyBenhCaContext.NguoiDung.Where(n => n.MaNd == Id).FirstOrDefault();
-            _quanLyBenhCaContext.NguoiDung.Remove(nguoiDung!);
+            var nguoiDung = _quanLyBenhCaContext.NguoiDung?.Where(n => n.MaNd == Id).FirstOrDefault();
+            _quanLyBenhCaContext.NguoiDung?.Remove(nguoiDung!);
             _quanLyBenhCaContext.SaveChanges();
             return RedirectToAction("Index");
         }
 
         private bool NguoiDungExists(int id)
         {
-            return _quanLyBenhCaContext.NguoiDung.Any(e => e.MaNd == id);
+            return _quanLyBenhCaContext.NguoiDung!.Any(e => e.MaNd == id);
         }
 
     }

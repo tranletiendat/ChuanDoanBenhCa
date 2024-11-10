@@ -1,0 +1,50 @@
+﻿@model IEnumerable<ChanDoanBenhCa.Models.PhuongPhapDieuTri>
+
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách Phương Pháp Điều Trị</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Danh sách Phương Pháp Điều Trị</h2>
+        <div class="text-right mb-3">
+            <a asp-action="Create" class="btn btn-success"><i class="fas fa-plus"></i> Thêm Mới</a>
+        </div>
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.TenPpdt)</th>
+                    <th>@Html.DisplayNameFor(model => model.MaBenhCa)</th>
+                    <th class="text-center">Hành Động</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.TenPpdt)</td>
+                        <td>@Html.DisplayFor(modelItem => item.MaBenhCa)</td>
+                        <td class="text-center">
+                            <a href="@Url.Action("Edit", "PhuongPhapDieuTri", new { id = item.MaPpdt })" class="btn btn-warning btn-sm mx-1">
+                                <i class="fas fa-edit"></i> Sửa
+                            </a>
+                            <a href="#" onclick="if (confirm('Bạn có chắc chắn muốn xóa không?')) { location.href = '@Url.Action("Delete", "PhuongPhapDieuTri", new { id = item.MaPpdt })' }" class="btn btn-danger btn-sm mx-1">
+                                <i class="fas fa-trash"></i> Xóa
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -9,28 +9,26 @@ public partial class QuanLyBenhCaContext : DbContext
     public QuanLyBenhCaContext(DbContextOptions<QuanLyBenhCaContext> options)
         : base(options) { }
 
-    public virtual DbSet<BaiDang> BaiDang { get; set; }
+    public virtual DbSet<BaiDang>? BaiDang { get; set; }
 
-    public virtual DbSet<BenhCa> BenhCa { get; set; }
+    public virtual DbSet<BenhCa>? BenhCa { get; set; }
 
-    public virtual DbSet<BienPhapPhongNgua> BienPhapPhongNgua { get; set; }
+    public virtual DbSet<BienPhapPhongNgua>? BienPhapPhongNgua { get; set; }
 
-    public virtual DbSet<DanCa> DanCa { get; set; }
+    public virtual DbSet<DanCa>? DanCa { get; set; }
 
-    public virtual DbSet<LichSuBenh> LichSuBenh { get; set; }
+    public virtual DbSet<LichSuBenh>? LichSuBenh { get; set; }
 
-    public virtual DbSet<NguoiDung> NguoiDung { get; set; }
+    public virtual DbSet<NguoiDung>? NguoiDung { get; set; }
 
-    public virtual DbSet<NguoiNuoiCa> NguoiNuoiCa { get; set; }
+    public virtual DbSet<NguoiNuoiCa>? NguoiNuoiCa { get; set; }
 
-    public virtual DbSet<PhuongPhapDieuTri> PhuongPhapDieuTri { get; set; }
+    public virtual DbSet<PhuongPhapDieuTri>? PhuongPhapDieuTri { get; set; }
 
-    public virtual DbSet<TinTucDichBenh> TinTucDichBenh { get; set; }
+    public virtual DbSet<TinTucDichBenh>? TinTucDichBenh { get; set; }
 
-    public virtual DbSet<TrieuChungBenhCa> TrieuChungBenhCa { get; set; }
+    public virtual DbSet<TrieuChungBenhCa>? TrieuChungBenhCa { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=QuanLyBenhCa;Integrated Security=True;Trust Server Certificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

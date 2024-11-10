@@ -1,0 +1,50 @@
+﻿@model IEnumerable<ChanDoanBenhCa.Models.TrieuChungBenhCa>
+
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Danh sách Triệu Chứng Bệnh Cá</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2>Danh sách Triệu Chứng Bệnh Cá</h2>
+            <a asp-action="Create" class="btn btn-success">Thêm mới</a>
+        </div>
+
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.TenTrieuChung)</th>
+                    <th class="text-center">Tác vụ</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.TenTrieuChung)</td>
+                        <td class="text-center">
+                            <a asp-action="Edit" asp-route-id="@item.MaTcbc" class="btn btn-warning btn-sm">
+                                <i class="fas fa-edit"></i> Sửa
+                            </a>
+                            <a href="#" onclick="if (confirm('Bạn có chắc chắn muốn xóa không?') == true) { location.href = '/TrieuChungBenhCa/Delete?id=@item.MaTcbc' }" class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i> Xóa
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

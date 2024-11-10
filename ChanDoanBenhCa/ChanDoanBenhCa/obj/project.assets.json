@@ -7721,11 +7721,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa.csproj",
+      "projectUniqueName": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChuanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa.csproj",
       "projectName": "ChanDoanBenhCa",
-      "projectPath": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa.csproj",
+      "projectPath": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChuanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa.csproj",
       "packagesPath": "C:\\Users\\huynh\\.nuget\\packages\\",
-      "outputPath": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChanDoanBenhCa\\ChanDoanBenhCa\\obj\\",
+      "outputPath": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChuanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
