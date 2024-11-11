@@ -9,5 +9,5 @@ public partial class TrieuChungBenhCa
 
     public string? TenTrieuChung { get; set; }
 
-    public virtual ICollection<BenhCa> MaBcs { get; set; } = new List<BenhCa>();
+    public virtual ICollection<KetQuaChuanDoan> KetQuaChuanDoan { get; set; } = new List<KetQuaChuanDoan>();
 }

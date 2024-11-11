@@ -131,5 +131,62 @@ namespace ChanDoanBenhCa.Controllers
 
             return View(result);
         }
+
+        public IActionResult SearchByTrieuChung()
+        {
+            var trieuChungList = _quanLyBenhCaContext.TrieuChungBenhCa!.Select(tc => new { tc.MaTcbc, tc.TenTrieuChung }).ToList();
+            ViewBag.TrieuChungList = trieuChungList;
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult SearchByTrieuChung(List<int> selectedTrieuChung)
+        {
+
+            var benhCaList = _quanLyBenhCaContext.BenhCa!
+                .Where(bc => _quanLyBenhCaContext.KetQuaChuanDoan!
+                    .Any(cd => cd.MaBc == bc.MaBc && selectedTrieuChung.Contains(cd.MaTcbc)))
+                .Select(bc => new
+                {
+                    bc.MaBc,
+                    bc.TenBc,
+                    SoLuongTrieuChung = _quanLyBenhCaContext.KetQuaChuanDoan!
+                        .Count(cd => cd.MaBc == bc.MaBc && selectedTrieuChung.Contains(cd.MaTcbc)), // Đếm số lượng triệu chứng liên quan
+                    TrieuChungLienQuanList = _quanLyBenhCaContext.KetQuaChuanDoan!
+                        .Where(cd => cd.MaBc == bc.MaBc && selectedTrieuChung.Contains(cd.MaTcbc))
+                        .Select(cd => new { cd.MaTcbc, cd.TrieuChungBenhCa!.TenTrieuChung })
+                        .ToList()
+                })
+                .OrderByDescending(bc => bc.SoLuongTrieuChung) // Sắp xếp theo số lượng triệu chứng giảm dần
+                .FirstOrDefault(); // Lấy bệnh có nhiều triệu chứng nhất
+
+            // Lấy phương pháp điều trị và biện pháp phòng ngừa cho bệnh này
+            var phuongPhapDieuTri = _quanLyBenhCaContext.PhuongPhapDieuTri!
+                .Where(pp => pp.MaBenhCa == benhCaList!.MaBc)
+                .Select(pp => new { pp.MaPpdt, pp.TenPpdt })
+                .ToList();
+
+            var bienPhapPhongNgua = _quanLyBenhCaContext.BienPhapPhongNgua!
+                .Where(bp => bp.MaBenhCa == benhCaList!.MaBc)
+                .Select(bp => new { bp.MaBppn, bp.TenBppn })
+                .ToList();
+
+            // Gửi phương pháp điều trị và biện pháp phòng ngừa tới View
+            ViewBag.PhuongPhapDieuTri = phuongPhapDieuTri;
+            ViewBag.BienPhapPhongNgua = bienPhapPhongNgua;
+            ViewBag.TrieuChungLienQuanList = benhCaList!.TrieuChungLienQuanList;
+
+            var trieuChungList = _quanLyBenhCaContext.TrieuChungBenhCa!
+                .Select(tc => new { tc.MaTcbc, tc.TenTrieuChung })
+                .ToList();
+
+            ViewBag.TrieuChungList = trieuChungList;
+            ViewBag.BenhCaList = benhCaList;
+
+            return View();
+        }
+
+
+
     }
 }

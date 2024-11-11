@@ -29,6 +29,8 @@ public partial class QuanLyBenhCaContext : DbContext
 
     public virtual DbSet<TrieuChungBenhCa>? TrieuChungBenhCa { get; set; }
 
+    public virtual DbSet<KetQuaChuanDoan>? KetQuaChuanDoan { get; set; }
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -61,24 +63,24 @@ public partial class QuanLyBenhCaContext : DbContext
                 .HasMaxLength(100)
                 .HasColumnName("TenBC");
 
-            entity.HasMany(d => d.MaTcbcs).WithMany(p => p.MaBcs)
-                .UsingEntity<Dictionary<string, object>>(
-                    "KetQuaChuanDoan",
-                    r => r.HasOne<TrieuChungBenhCa>().WithMany()
-                        .HasForeignKey("MaTcbc")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__KetQuaChu__MaTCB__38996AB5"),
-                    l => l.HasOne<BenhCa>().WithMany()
-                        .HasForeignKey("MaBc")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__KetQuaChua__MaBC__37A5467C"),
-                    j =>
-                    {
-                        j.HasKey("MaBc", "MaTcbc").HasName("PK__KetQuaCh__FC1237F565273461");
-                        j.ToTable("KetQuaChuanDoan");
-                        j.IndexerProperty<int>("MaBc").HasColumnName("MaBC");
-                        j.IndexerProperty<int>("MaTcbc").HasColumnName("MaTCBC");
-                    });
+            //entity.HasMany(d => d.MaTcbcs).WithMany(p => p.MaBcs)
+            //    .UsingEntity<Dictionary<string, object>>(
+            //        "KetQuaChuanDoan",
+            //        r => r.HasOne<TrieuChungBenhCa>().WithMany()
+            //            .HasForeignKey("MaTcbc")
+            //            .OnDelete(DeleteBehavior.ClientSetNull)
+            //            .HasConstraintName("FK__KetQuaChu__MaTCB__38996AB5"),
+            //        l => l.HasOne<BenhCa>().WithMany()
+            //            .HasForeignKey("MaBc")
+            //            .OnDelete(DeleteBehavior.ClientSetNull)
+            //            .HasConstraintName("FK__KetQuaChua__MaBC__37A5467C"),
+            //        j =>
+            //        {
+            //            j.HasKey("MaBc", "MaTcbc").HasName("PK__KetQuaCh__FC1237F565273461");
+            //            j.ToTable("KetQuaChuanDoan");
+            //            j.IndexerProperty<int>("MaBc").HasColumnName("MaBC");
+            //            j.IndexerProperty<int>("MaTcbc").HasColumnName("MaTCBC");
+            //        });
         });
 
         modelBuilder.Entity<BienPhapPhongNgua>(entity =>
@@ -224,6 +226,19 @@ public partial class QuanLyBenhCaContext : DbContext
                 .ValueGeneratedOnAdd();
             entity.Property(e => e.TenTrieuChung).HasMaxLength(100);
         });
+
+        modelBuilder.Entity<KetQuaChuanDoan>()
+            .HasKey(cd => new { cd.MaBc, cd.MaTcbc });
+
+        modelBuilder.Entity<KetQuaChuanDoan>()
+        .HasOne(cd => cd.BenhCa)
+        .WithMany(b => b.KetQuaChuanDoan)  // Sửa lại thành .ChanDoans
+        .HasForeignKey(cd => cd.MaBc);
+
+        modelBuilder.Entity<KetQuaChuanDoan>()
+            .HasOne(cd => cd.TrieuChungBenhCa)
+            .WithMany(tc => tc.KetQuaChuanDoan)  // Sửa lại thành .ChanDoans
+            .HasForeignKey(cd => cd.MaTcbc);
 
         OnModelCreatingPartial(modelBuilder);
     }

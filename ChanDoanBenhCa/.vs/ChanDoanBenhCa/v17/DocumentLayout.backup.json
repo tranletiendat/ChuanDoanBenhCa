@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChuanDoanBenhCa\\ChanDoanBenhCa\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CEAA0D1B-D2F2-412F-87DA-3310B908A54A}|ChanDoanBenhCa\\ChanDoanBenhCa.csproj|d:\\huynhhuuduc_2001207422\\doanchuyennganh\\chuandoanbenhca\\chandoanbenhca\\chandoanbenhca\\views\\benhca\\search.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{CEAA0D1B-D2F2-412F-87DA-3310B908A54A}|ChanDoanBenhCa\\ChanDoanBenhCa.csproj|solutionrelative:chandoanbenhca\\views\\benhca\\search.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{CEAA0D1B-D2F2-412F-87DA-3310B908A54A}|ChanDoanBenhCa\\ChanDoanBenhCa.csproj|d:\\huynhhuuduc_2001207422\\doanchuyennganh\\chuandoanbenhca\\chandoanbenhca\\chandoanbenhca\\views\\benhca\\searchbytrieuchung.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CEAA0D1B-D2F2-412F-87DA-3310B908A54A}|ChanDoanBenhCa\\ChanDoanBenhCa.csproj|solutionrelative:chandoanbenhca\\views\\benhca\\searchbytrieuchung.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CEAA0D1B-D2F2-412F-87DA-3310B908A54A}|ChanDoanBenhCa\\ChanDoanBenhCa.csproj|d:\\huynhhuuduc_2001207422\\doanchuyennganh\\chuandoanbenhca\\chandoanbenhca\\chandoanbenhca\\controllers\\benhcacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -13,10 +13,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{CEAA0D1B-D2F2-412F-87DA-3310B908A54A}|ChanDoanBenhCa\\ChanDoanBenhCa.csproj|d:\\huynhhuuduc_2001207422\\doanchuyennganh\\chuandoanbenhca\\chandoanbenhca\\chandoanbenhca\\views\\benhca\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{CEAA0D1B-D2F2-412F-87DA-3310B908A54A}|ChanDoanBenhCa\\ChanDoanBenhCa.csproj|solutionrelative:chandoanbenhca\\views\\benhca\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CEAA0D1B-D2F2-412F-87DA-3310B908A54A}|ChanDoanBenhCa\\ChanDoanBenhCa.csproj|d:\\huynhhuuduc_2001207422\\doanchuyennganh\\chuandoanbenhca\\chandoanbenhca\\chandoanbenhca\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{CEAA0D1B-D2F2-412F-87DA-3310B908A54A}|ChanDoanBenhCa\\ChanDoanBenhCa.csproj|solutionrelative:chandoanbenhca\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -40,22 +36,22 @@
               "RelativeDocumentMoniker": "ChanDoanBenhCa\\Views\\BenhCa\\Index.cshtml",
               "ToolTip": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChuanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa\\Views\\BenhCa\\Index.cshtml",
               "RelativeToolTip": "ChanDoanBenhCa\\Views\\BenhCa\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABMAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-10T08:02:02.432Z",
+              "WhenOpened": "2024-11-11T08:39:41.825Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Search.cshtml",
-              "DocumentMoniker": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChuanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa\\Views\\BenhCa\\Search.cshtml",
-              "RelativeDocumentMoniker": "ChanDoanBenhCa\\Views\\BenhCa\\Search.cshtml",
-              "ToolTip": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChuanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa\\Views\\BenhCa\\Search.cshtml",
-              "RelativeToolTip": "ChanDoanBenhCa\\Views\\BenhCa\\Search.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAzAAAAAAAAAA==",
+              "Title": "SearchByTrieuChung.cshtml",
+              "DocumentMoniker": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChuanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa\\Views\\BenhCa\\SearchByTrieuChung.cshtml",
+              "RelativeDocumentMoniker": "ChanDoanBenhCa\\Views\\BenhCa\\SearchByTrieuChung.cshtml",
+              "ToolTip": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChuanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa\\Views\\BenhCa\\SearchByTrieuChung.cshtml",
+              "RelativeToolTip": "ChanDoanBenhCa\\Views\\BenhCa\\SearchByTrieuChung.cshtml",
+              "ViewState": "AgIAABYAAAAAAAAAAAAUwCgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-10T08:01:48.648Z",
+              "WhenOpened": "2024-11-11T08:39:16.102Z",
               "EditorCaption": ""
             },
             {
@@ -66,22 +62,9 @@
               "RelativeDocumentMoniker": "ChanDoanBenhCa\\Controllers\\BenhCaController.cs",
               "ToolTip": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChuanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa\\Controllers\\BenhCaController.cs",
               "RelativeToolTip": "ChanDoanBenhCa\\Controllers\\BenhCaController.cs",
-              "ViewState": "AgIAAGYAAAAAAAAAAAAwwHcAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAI8AAAAAAAAAAAAMwLAAAABNAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-10T07:59:56.798Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChuanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "ChanDoanBenhCa\\Views\\Home\\Index.cshtml",
-              "ToolTip": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChuanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "ChanDoanBenhCa\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-10T05:55:02.845Z",
               "EditorCaption": ""
             }
           ]

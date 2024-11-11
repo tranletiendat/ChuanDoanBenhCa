@@ -19,5 +19,5 @@ public partial class BenhCa
 
     public virtual ICollection<TinTucDichBenh> TinTucDichBenhs { get; set; } = new List<TinTucDichBenh>();
 
-    public virtual ICollection<TrieuChungBenhCa> MaTcbcs { get; set; } = new List<TrieuChungBenhCa>();
+    public virtual ICollection<KetQuaChuanDoan> KetQuaChuanDoan { get; set; } = new List<KetQuaChuanDoan>();
 }

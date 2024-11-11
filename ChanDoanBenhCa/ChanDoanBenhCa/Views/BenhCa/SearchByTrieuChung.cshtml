@@ -1,0 +1,64 @@
+﻿@model IEnumerable<dynamic>
+
+@{
+    ViewData["Title"] = "Chuẩn Đoán Bệnh Cá";
+    var benhCaList = ViewBag.BenhCaList as IEnumerable<dynamic>;
+    Layout = "_Layout";
+}
+<!-- Thêm Bootstrap CDN vào trong phần <head> -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+
+<h2>Chuẩn Đoán Bệnh Cá theo Triệu Chứng</h2>
+
+<!-- Form chọn triệu chứng -->
+<form asp-action="SearchByTrieuChung" method="post">
+    <div class="form-check">
+        @foreach (var tc in ViewBag.TrieuChungList)
+        {
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="tc_@tc.MaTcbc" name="selectedTrieuChung" value="@tc.MaTcbc" />
+                <label class="form-check-label" for="tc_@tc.MaTcbc">@tc.TenTrieuChung</label>
+            </div>
+        }
+    </div>
+    <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+</form>
+
+@if (ViewBag.BenhCaList != null && ViewBag.BenhCaList.MaBc != null)
+{
+    <h3>Kết quả chuẩn đoán</h3>
+
+    <p>Bệnh có nhiều triệu chứng nhất: <strong>@ViewBag.BenhCaList.TenBc</strong></p>
+    <p>Số lượng triệu chứng liên quan: @ViewBag.BenhCaList.SoLuongTrieuChung</p>
+    <h4>Các triệu chứng liên quan:</h4>
+    <ul>
+        @foreach (var trieuChung in ViewBag.TrieuChungLienQuanList)
+        {
+            <li>@trieuChung.TenTrieuChung</li> <!-- Hiển thị tên triệu chứng -->
+        }
+    </ul>
+
+    <h4>Phương pháp điều trị:</h4>
+    <ul>
+        @foreach (var pp in ViewBag.PhuongPhapDieuTri)
+        {
+            <li>@pp.TenPpdt</li>
+        }
+    </ul>
+
+    <h4>Biện pháp phòng ngừa:</h4>
+    <ul>
+        @foreach (var bp in ViewBag.BienPhapPhongNgua)
+        {
+            <li>@bp.TenBppn</li>
+        }
+    </ul>
+}
+else
+{
+    <p>Không tìm thấy bệnh cá nào với các triệu chứng đã chọn.</p>
+}
+
+
+
