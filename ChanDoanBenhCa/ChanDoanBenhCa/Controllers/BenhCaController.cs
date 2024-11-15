@@ -160,21 +160,27 @@ namespace ChanDoanBenhCa.Controllers
                 .OrderByDescending(bc => bc.SoLuongTrieuChung) // Sắp xếp theo số lượng triệu chứng giảm dần
                 .FirstOrDefault(); // Lấy bệnh có nhiều triệu chứng nhất
 
-            // Lấy phương pháp điều trị và biện pháp phòng ngừa cho bệnh này
-            var phuongPhapDieuTri = _quanLyBenhCaContext.PhuongPhapDieuTri!
-                .Where(pp => pp.MaBenhCa == benhCaList!.MaBc)
-                .Select(pp => new { pp.MaPpdt, pp.TenPpdt })
-                .ToList();
 
-            var bienPhapPhongNgua = _quanLyBenhCaContext.BienPhapPhongNgua!
-                .Where(bp => bp.MaBenhCa == benhCaList!.MaBc)
-                .Select(bp => new { bp.MaBppn, bp.TenBppn })
-                .ToList();
 
-            // Gửi phương pháp điều trị và biện pháp phòng ngừa tới View
-            ViewBag.PhuongPhapDieuTri = phuongPhapDieuTri;
-            ViewBag.BienPhapPhongNgua = bienPhapPhongNgua;
-            ViewBag.TrieuChungLienQuanList = benhCaList!.TrieuChungLienQuanList;
+
+            if (benhCaList != null)
+            {
+                // Lấy phương pháp điều trị và biện pháp phòng ngừa cho bệnh này
+                var phuongPhapDieuTri = _quanLyBenhCaContext.PhuongPhapDieuTri!
+                    .Where(pp => pp.MaBenhCa == benhCaList!.MaBc)
+                    .Select(pp => new { pp.MaPpdt, pp.TenPpdt })
+                    .ToList();
+
+                var bienPhapPhongNgua = _quanLyBenhCaContext.BienPhapPhongNgua!
+                    .Where(bp => bp.MaBenhCa == benhCaList!.MaBc)
+                    .Select(bp => new { bp.MaBppn, bp.TenBppn })
+                    .ToList();
+
+                // Gửi phương pháp điều trị và biện pháp phòng ngừa tới View
+                ViewBag.PhuongPhapDieuTri = phuongPhapDieuTri;
+                ViewBag.BienPhapPhongNgua = bienPhapPhongNgua;
+                ViewBag.TrieuChungLienQuanList = benhCaList!.TrieuChungLienQuanList;
+            }
 
             var trieuChungList = _quanLyBenhCaContext.TrieuChungBenhCa!
                 .Select(tc => new { tc.MaTcbc, tc.TenTrieuChung })
