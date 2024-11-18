@@ -1,6 +1,8 @@
 ﻿using ChanDoanBenhCa.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Text;
+using System.Security.Cryptography;
 
 namespace ChanDoanBenhCa.Controllers
 {
@@ -15,6 +17,13 @@ namespace ChanDoanBenhCa.Controllers
 
         public IActionResult Index()
         {
+            // Lấy thông tin từ Session
+            var quyen = HttpContext.Session.GetString("IsAdmin");
+
+            if (string.IsNullOrEmpty(quyen) || quyen != "admin")
+            {
+                return RedirectToAction("Login", "Account");
+            }
             var data = _quanLyBenhCaContext.NguoiDung?.ToList();
             return View(data);
         }
@@ -79,7 +88,7 @@ namespace ChanDoanBenhCa.Controllers
                     //Tìm đối tượng cần sửa
                     var EditModel = _quanLyBenhCaContext.NguoiDung!.Where(n => n.MaNd == id).FirstOrDefault();
                     EditModel!.TenNd = NguoiDung.TenNd;
-                    EditModel.MatKhau = NguoiDung.MatKhau;
+                    EditModel.MatKhau = HashPassword(NguoiDung.MatKhau);
                     EditModel.QuyenNguoiDung = NguoiDung.QuyenNguoiDung;
                     _quanLyBenhCaContext.Update(EditModel);
                     await _quanLyBenhCaContext.SaveChangesAsync();
@@ -98,6 +107,17 @@ namespace ChanDoanBenhCa.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(NguoiDung);
+        }
+
+        public static string HashPassword(string password)
+        {
+            using (var sha256 = SHA256.Create())
+            {
+                var bytes = Encoding.UTF8.GetBytes(password);
+                var hash = sha256.ComputeHash(bytes);
+
+                return Convert.ToBase64String(hash);
+            }
         }
 
         public ActionResult Delete(int Id)
