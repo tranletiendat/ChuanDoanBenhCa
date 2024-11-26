@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ChanDoanBenhCa</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ChanDoanBenhCa.styles.css" asp-append-version="true" />
+    <!-- Thêm link Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <div class="sidebar bg-light border">
+            <ul class="nav flex-column p-3">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Home")">
+                        <i class="fa-solid fa-house"></i> Trang Chủ
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "BaiDang")">
+                        <i class="fa-solid fa-scroll"></i> Bài đăng
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "BenhCa")">
+                        <i class="fa-solid fa-briefcase-medical"></i> Chuẩn Đoán
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "DanCa")">
+                        <i class="fa-solid fa-fish"></i> Đàn cá
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "TinTucDichBenh")">
+                        <i class="fa-solid fa-bullhorn"></i> Tin tức
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "TrieuChungBenhCa")">
+                        <i class="fa-solid fa-file-waveform"></i> Triệu Chứng
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "BienPhapPhongNgua")">
+                        <i class="fa-solid fa-hand-holding-medical"></i> Phòng ngừa
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "PhuongPhapDieuTri")">
+                        <i class="fa-solid fa-capsules"></i> Điều trị
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "NguoiDungs")">
+                        <i class="fa-solid fa-user"></i> Người dùng
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "NguoiNuoiCa")">
+                        <i class="fa-solid fa-person"></i> Người nuôi cá
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Login", "Account")">
+                        <i class="fa-solid fa-person"></i> Đăng Nhập
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Register", "Account")">
+                        <i class="fa-solid fa-person"></i> Đăng Ký
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content flex-grow-1 p-4">
+            @RenderBody()
+        </div>
+    </div>
+
+    <!-- Footer -->
+
+</body>
+
+</html>

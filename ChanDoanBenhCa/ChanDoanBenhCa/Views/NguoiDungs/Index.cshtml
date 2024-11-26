@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ChanDoanBenhCa.Models.NguoiDung>
+
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <!-- Thêm liên kết đến Bootstrap để tạo kiểu cho bảng -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <h2 class="text-center">Danh sách Người Dùng</h2>
+
+        <p>
+            <a class="btn btn-primary" asp-action="Create">Tạo Mới</a>
+        </p>
+
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.TenNd)</th>
+                    <th>@Html.DisplayNameFor(model => model.MatKhau)</th>
+                    <th>@Html.DisplayNameFor(model => model.QuyenNguoiDung)</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.TenNd)</td>
+                            <td>@Html.DisplayFor(modelItem => item.MatKhau)</td>
+                            <td>@Html.DisplayFor(modelItem => item.QuyenNguoiDung)</td>
+                            <td>
+                            @Html.ActionLink("Sửa", "Edit", new { id = item.MaNd }, new { @class = "btn btn-warning btn-sm" }) |
+                            <a href="#" onclick="if (confirm('Bạn có chắc chắn muốn xóa không?') == true) { location.href = '/NguoiDungs/Delete?id=@item.MaNd' }" class="btn btn-light"><i class="fa fa-heart"></i>Xóa</a>
+                            </td>
+                        </tr>
+                }
+            </tbody>
+        </table>
+
+        <!-- Nút quay lại trang Home -->
+        <p>
+            <a class="btn btn-secondary" href="@Url.Action("Index", "Home")">Quay lại Trang Chủ</a>
+        </p>
+    </div>
+
+    <!-- Thêm liên kết đến script của Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

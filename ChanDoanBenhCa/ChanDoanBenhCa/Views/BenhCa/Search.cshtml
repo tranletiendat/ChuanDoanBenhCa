@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ChanDoanBenhCa.Models.BenhCa>
+
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Tìm kiếm bệnh cá</title>
+</head>
+<body>
+
+    <h4>Tìm kiếm bệnh cá</h4>
+    <hr />
+
+    <!-- Form tìm kiếm -->
+    <form method="get" asp-action="Search">
+        <div class="form-group">
+            <label for="searchTerm">Tìm kiếm theo tên bệnh hoặc mô tả:</label>
+            <input type="text" id="searchTerm" name="searchTerm" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+    </form>
+
+    <hr />
+
+    @if (Model != null && Model.Any())
+    {
+        <h5>Kết quả tìm kiếm:</h5>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Tên bệnh</th>
+                    <th>Mô tả bệnh</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.TenBc</td>
+                        <td>@item.MoTaChiTietBenhCa</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Không có kết quả tìm kiếm nào.</p>
+    }
+
+</body>
+</html>

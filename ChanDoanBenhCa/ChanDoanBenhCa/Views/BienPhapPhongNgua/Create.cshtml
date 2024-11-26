@@ -1,0 +1,56 @@
+﻿@model ChanDoanBenhCa.Models.BienPhapPhongNgua
+
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tạo Biện Pháp Phòng Ngừa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container mt-5">
+        <h4 class="mb-3">Tạo Biện Pháp Phòng Ngừa</h4>
+        <hr />
+
+        <div class="row">
+            <div class="col-md-6">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <!-- Tên Biện Pháp Phòng Ngừa -->
+                    <div class="form-group mb-3">
+                        <label asp-for="TenBppn" class="control-label"></label>
+                        <textarea asp-for="TenBppn" class="form-control" rows="4"></textarea>
+                        <span asp-validation-for="TenBppn" class="text-danger"></span>
+                    </div>
+
+                    <!-- Mã Bệnh Cá -->
+                    <div class="form-group mb-3">
+                        <label asp-for="MaBenhCa" class="control-label"></label>
+                        <select asp-for="MaBenhCa" class="form-control" asp-items="@(ViewBag.Bc ?? new List<SelectListItem>())">
+                            <option value="">-- Chọn Bệnh Cá --</option> <!-- Tùy chọn rỗng -->
+                        </select>
+                        <span asp-validation-for="MaBenhCa" class="text-danger"></span>
+                    </div>
+
+                    <!-- Nút Gửi Form -->
+                    <div class="form-group mb-3">
+                        <input type="submit" value="Tạo Mới" class="btn btn-success w-100" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="mt-3">
+            <a asp-action="Index" class="btn btn-secondary">Quay lại danh sách</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
