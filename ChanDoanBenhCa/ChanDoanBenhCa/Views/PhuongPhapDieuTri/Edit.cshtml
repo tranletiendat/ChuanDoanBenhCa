@@ -1,0 +1,56 @@
+﻿@model ChanDoanBenhCa.Models.PhuongPhapDieuTri
+
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chỉnh Sửa Phương Pháp Điều Trị</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h4 class="text-center">Chỉnh Sửa Phương Pháp Điều Trị</h4>
+        <hr />
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <!-- Tên Phương Pháp Điều Trị -->
+                    <div class="form-group">
+                        <label asp-for="TenPpdt" class="control-label font-weight-bold">Tên Phương Pháp Điều Trị</label>
+                        <textarea asp-for="TenPpdt" class="form-control" rows="4" placeholder="Nhập tên phương pháp điều trị"></textarea>
+                        <span asp-validation-for="TenPpdt" class="text-danger"></span>
+                    </div>
+
+                    <!-- Mã Bệnh Cá -->
+                    <div class="form-group">
+                        <label asp-for="MaBenhCa" class="control-label font-weight-bold">Mã Bệnh Cá</label>
+                        <select asp-for="MaBenhCa" class="form-control" asp-items="@(ViewBag.Bc ?? new List<SelectListItem>())">
+                            <option value="">-- Chọn Bệnh Cá --</option>
+                        </select>
+                        <span asp-validation-for="MaBenhCa" class="text-danger"></span>
+                    </div>
+
+                    <!-- Nút Lưu -->
+                    <div class="form-group text-center">
+                        <input type="submit" value="Lưu Thay Đổi" class="btn btn-primary" />
+                        <a asp-action="Index" class="btn btn-secondary ml-2">Quay Lại</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+</body>
+</html>

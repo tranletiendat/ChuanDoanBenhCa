@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ChanDoanBenhCa.Models.TinTucDichBenh>
+
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Danh sách tin tức dịch bệnh</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h2 class="mb-3">Danh sách tin tức dịch bệnh</h2>
+        <p>
+            <a asp-action="Create" class="btn btn-primary">Tạo mới</a>
+        </p>
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.TenTtdb)</th>
+                    <th>@Html.DisplayNameFor(model => model.NgayDang)</th>
+                    <th>@Html.DisplayNameFor(model => model.MoTa)</th>
+                    <th>@Html.DisplayNameFor(model => model.MaBc)</th>
+                    <th class="text-center">Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.TenTtdb)</td>
+                        <td>@Html.DisplayFor(modelItem => item.NgayDang)</td>
+                        <td>@Html.DisplayFor(modelItem => item.MoTa)</td>
+                        <td>@Html.DisplayFor(modelItem => item.MaBc)</td>
+                        <td class="text-center">
+                            @Html.ActionLink("Sửa", "Edit", new { id = item.MaTtdb }, new { @class = "btn btn-warning btn-sm mx-1" })
+                            
+                            <a asp-action="Delete" asp-route-id="@item.MaTtdb" class="btn btn-danger btn-sm mx-1"
+                               onclick="return confirm('Bạn có chắc chắn muốn xóa không?');">
+                                <i class="fas fa-trash-alt"></i> Xóa
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

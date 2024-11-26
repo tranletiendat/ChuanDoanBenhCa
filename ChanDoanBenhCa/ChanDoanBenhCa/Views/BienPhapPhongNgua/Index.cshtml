@@ -1,0 +1,49 @@
+﻿@model IEnumerable<ChanDoanBenhCa.Models.BienPhapPhongNgua>
+
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Danh Sách Biện Pháp Phòng Ngừa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container mt-5">
+        <h4>Danh Sách Biện Pháp Phòng Ngừa</h4>
+        <p>
+            <a asp-action="Create" class="btn btn-success mb-3">Tạo Mới</a>
+        </p>
+
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.TenBppn)</th>
+                    <th>@Html.DisplayNameFor(model => model.MaBenhCa)</th>
+                    <th>Thao Tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.TenBppn)</td>
+                        <td>@Html.DisplayFor(modelItem => item.MaBenhCa)</td>
+                        <td>
+                            <a href="@Url.Action("Edit", "BienPhapPhongNgua", new { id = item.MaBppn })" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Sửa</a>
+                            <a href="#" onclick="if (confirm('Bạn có chắc chắn muốn xóa không?') == true) { location.href = '/BienPhapPhongNgua/Delete?id=@item.MaBppn' }" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Xóa</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

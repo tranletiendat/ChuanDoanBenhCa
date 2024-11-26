@@ -1,0 +1,71 @@
+﻿@model ChanDoanBenhCa.Models.NguoiDung
+
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+    <!-- Liên kết tới Bootstrap để tạo kiểu cho trang -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container mt-5">
+        <h2 class="text-center">Tạo Mới Người Dùng</h2>
+        <hr />
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form asp-action="Create">
+                    <!-- Hiển thị thông báo lỗi nếu có -->
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <!-- Nhập tên người dùng -->
+                    <div class="form-group mb-3">
+                        <label asp-for="TenNd" class="control-label">Tên Người Dùng</label>
+                        <input asp-for="TenNd" class="form-control" placeholder="Nhập tên người dùng" />
+                        <span asp-validation-for="TenNd" class="text-danger"></span>
+                    </div>
+
+                    <!-- Nhập mật khẩu -->
+                    <div class="form-group mb-3">
+                        <label asp-for="MatKhau" class="control-label">Mật Khẩu</label>
+                        <input asp-for="MatKhau" type="password" class="form-control" placeholder="Nhập mật khẩu" />
+                        <span asp-validation-for="MatKhau" class="text-danger"></span>
+                    </div>
+
+                    <!-- Nhập quyền người dùng -->
+                    <div class="form-group mb-3">
+                        <label asp-for="QuyenNguoiDung" class="control-label">Quyền Người Dùng</label>
+                        <input asp-for="QuyenNguoiDung" class="form-control" placeholder="Nhập quyền người dùng" />
+                        <span asp-validation-for="QuyenNguoiDung" class="text-danger"></span>
+                    </div>
+
+                    <!-- Nút Submit -->
+                    <div class="form-group text-center">
+                        <input type="submit" value="Tạo Mới" class="btn btn-primary btn-lg" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Nút quay lại danh sách người dùng -->
+        <div class="mt-3 text-center">
+            <a class="btn btn-secondary" asp-action="Index">Quay lại Danh Sách</a>
+        </div>
+    </div>
+
+    <!-- Thêm liên kết tới script của Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+
+</body>
+</html>

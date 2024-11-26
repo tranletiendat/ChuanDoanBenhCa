@@ -1,0 +1,43 @@
+﻿@model IEnumerable<dynamic>
+
+@{
+    ViewBag.Title = "Báo Cáo Thống Kê";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Báo Cáo Thống Kê</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Tên Bệnh Cá</th>
+            <th>Số Lần Chẩn Đoán</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            int stt = 1;
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@stt</td>
+                    <td>@item.TenBc</td>
+                    <td>@item.SoLanChuanDoan</td>
+                </tr>
+                stt++;
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="3" class="text-center">Không có dữ liệu</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<form asp-action="XuatBaoCaoThongKe" method="get">
+    <button type="submit" class="btn btn-primary">Xuất Excel</button>
+</form>
