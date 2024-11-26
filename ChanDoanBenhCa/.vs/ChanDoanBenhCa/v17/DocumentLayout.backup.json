@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChuanDoanBenhCa\\ChanDoanBenhCa\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CEAA0D1B-D2F2-412F-87DA-3310B908A54A}|ChanDoanBenhCa\\ChanDoanBenhCa.csproj|d:\\huynhhuuduc_2001207422\\doanchuyennganh\\chuandoanbenhca\\chandoanbenhca\\chandoanbenhca\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{CEAA0D1B-D2F2-412F-87DA-3310B908A54A}|ChanDoanBenhCa\\ChanDoanBenhCa.csproj|solutionrelative:chandoanbenhca\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CEAA0D1B-D2F2-412F-87DA-3310B908A54A}|ChanDoanBenhCa\\ChanDoanBenhCa.csproj|d:\\huynhhuuduc_2001207422\\doanchuyennganh\\chuandoanbenhca\\chandoanbenhca\\chandoanbenhca\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{CEAA0D1B-D2F2-412F-87DA-3310B908A54A}|ChanDoanBenhCa\\ChanDoanBenhCa.csproj|solutionrelative:chandoanbenhca\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -18,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,7 +30,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChuanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa\\appsettings.json",
+              "RelativeDocumentMoniker": "ChanDoanBenhCa\\appsettings.json",
+              "ToolTip": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChuanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa\\appsettings.json",
+              "RelativeToolTip": "ChanDoanBenhCa\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-26T11:06:55.248Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Register.cshtml",
               "DocumentMoniker": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChuanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa\\Views\\Account\\Register.cshtml",
               "RelativeDocumentMoniker": "ChanDoanBenhCa\\Views\\Account\\Register.cshtml",
@@ -38,7 +55,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Login.cshtml",
               "DocumentMoniker": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChuanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa\\Views\\Account\\Login.cshtml",
               "RelativeDocumentMoniker": "ChanDoanBenhCa\\Views\\Account\\Login.cshtml",
