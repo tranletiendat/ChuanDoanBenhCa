@@ -1,4 +1,4 @@
-﻿@model ChanDoanBenhCa.Models.BenhCa
+﻿@model ChanDoanBenhCa.Models.ViewModels.BenhCaViewModel
 
 @{
     Layout = "_Layout";
@@ -16,7 +16,7 @@
         <h4 class="mb-4">Tạo Mới Bệnh Cá</h4>
 
         <!-- Form tạo mới bệnh cá -->
-        <form asp-action="Create">
+        <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div class="form-group mb-3">
@@ -29,6 +29,23 @@
                 <label asp-for="MoTaChiTietBenhCa" class="control-label">Mô Tả Chi Tiết Bệnh Cá</label>
                 <textarea asp-for="MoTaChiTietBenhCa" class="form-control" rows="4"></textarea>
                 <span asp-validation-for="MoTaChiTietBenhCa" class="text-danger"></span>
+            </div>
+
+            <div>
+                <label for="AnhBenhCa">Chọn ảnh</label>
+                <input type="file" id="AnhBenhCa" name="AnhBenhCa" class="form-control" />
+            </div>
+
+            <div>
+                <label>Chọn Triệu Chứng</label>
+                @foreach (var trieuChung in ViewBag.TrieuChungs)
+
+                {
+                    <div>
+                        <input type="checkbox" id="tc-@trieuChung.MaTcbc" name="SelectedTrieuChungIds" value="@trieuChung.MaTcbc" />
+                        <label for="tc-@trieuChung.MaTcbc">@trieuChung.TenTrieuChung</label>
+                    </div>
+                }
             </div>
 
             <div class="form-group">

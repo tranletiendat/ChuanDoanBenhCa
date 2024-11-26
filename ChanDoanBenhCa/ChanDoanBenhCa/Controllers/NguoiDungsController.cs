@@ -1,8 +1,6 @@
 ﻿using ChanDoanBenhCa.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Text;
-using System.Security.Cryptography;
 
 namespace ChanDoanBenhCa.Controllers
 {
@@ -47,6 +45,7 @@ namespace ChanDoanBenhCa.Controllers
                 // Kiểm tra và lấy giá trị MaNd mới
                 int maxMaNd = await _quanLyBenhCaContext.NguoiDung!.MaxAsync(u => u.MaNd);
                 NguoiDung.MaNd = maxMaNd + 1;
+                NguoiDung.MatKhau = AccountController.HashPassword(NguoiDung.MatKhau!);
                 _quanLyBenhCaContext.Add(NguoiDung);
                 await _quanLyBenhCaContext.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -88,7 +87,7 @@ namespace ChanDoanBenhCa.Controllers
                     //Tìm đối tượng cần sửa
                     var EditModel = _quanLyBenhCaContext.NguoiDung!.Where(n => n.MaNd == id).FirstOrDefault();
                     EditModel!.TenNd = NguoiDung.TenNd;
-                    EditModel.MatKhau = HashPassword(NguoiDung.MatKhau);
+                    EditModel.MatKhau = AccountController.HashPassword(NguoiDung.MatKhau!);
                     EditModel.QuyenNguoiDung = NguoiDung.QuyenNguoiDung;
                     _quanLyBenhCaContext.Update(EditModel);
                     await _quanLyBenhCaContext.SaveChangesAsync();
@@ -107,17 +106,6 @@ namespace ChanDoanBenhCa.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(NguoiDung);
-        }
-
-        public static string HashPassword(string password)
-        {
-            using (var sha256 = SHA256.Create())
-            {
-                var bytes = Encoding.UTF8.GetBytes(password);
-                var hash = sha256.ComputeHash(bytes);
-
-                return Convert.ToBase64String(hash);
-            }
         }
 
         public ActionResult Delete(int Id)

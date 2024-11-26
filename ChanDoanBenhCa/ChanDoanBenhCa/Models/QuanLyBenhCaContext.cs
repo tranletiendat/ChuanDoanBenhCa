@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace ChanDoanBenhCa.Models;
 
@@ -30,6 +28,10 @@ public partial class QuanLyBenhCaContext : DbContext
     public virtual DbSet<TrieuChungBenhCa>? TrieuChungBenhCa { get; set; }
 
     public virtual DbSet<KetQuaChuanDoan>? KetQuaChuanDoan { get; set; }
+
+    public virtual DbSet<AnhBenhCa>? AnhBenhCa { get; set; }
+
+    public virtual DbSet<LichSuChuanDoan>? LichSuChuanDoan { get; set; }
 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -239,6 +241,26 @@ public partial class QuanLyBenhCaContext : DbContext
             .HasOne(cd => cd.TrieuChungBenhCa)
             .WithMany(tc => tc.KetQuaChuanDoan)  // Sửa lại thành .ChanDoans
             .HasForeignKey(cd => cd.MaTcbc);
+
+        modelBuilder.Entity<AnhBenhCa>()
+        .HasKey(a => a.MaImg);
+
+        modelBuilder.Entity<LichSuChuanDoan>()
+        .HasKey(a => a.MaLSCD);
+
+        // Cấu hình mối quan hệ 1-n giữa BenhCa và AnhBenhCa
+        modelBuilder.Entity<AnhBenhCa>()
+            .HasOne(a => a.MaBenhCaNavigation)  // Mỗi AnhBenhCa thuộc về một BenhCa
+            .WithMany(b => b.AnhBenhCas)  // Mỗi BenhCa có thể có nhiều AnhBenhCa
+            .HasForeignKey(a => a.MaBenhCa)  // Chỉ định khóa ngoại
+            .OnDelete(DeleteBehavior.Cascade);  // Xóa các ảnh liên quan khi xóa bệnh cá
+
+        // Cấu hình mối quan hệ 1-n giữa BenhCa và LichSuChuanDoan
+        modelBuilder.Entity<LichSuChuanDoan>()
+            .HasOne(a => a.MaBenhCaNavigation)  // Mỗi LichSuChuanDoan thuộc về một BenhCa
+            .WithMany(b => b.LichSuChuanDoans)  // Mỗi BenhCa có thể có nhiều LichSuChuanDoan
+            .HasForeignKey(a => a.MaBenhCa)  // Chỉ định khóa ngoại
+            .OnDelete(DeleteBehavior.Cascade);  // Xóa các ảnh liên quan khi xóa bệnh cá
 
         OnModelCreatingPartial(modelBuilder);
     }

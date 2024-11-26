@@ -13,6 +13,70 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChuanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa\\wwwroot\\images\\anh1.jpg",
+      "PackagePath": "staticwebassets\\images\\anh1.jpg"
+    },
+    {
+      "Id": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChuanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa\\wwwroot\\images\\anh2.jpg",
+      "PackagePath": "staticwebassets\\images\\anh2.jpg"
+    },
+    {
+      "Id": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChuanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa\\wwwroot\\images\\benh1.jpg",
+      "PackagePath": "staticwebassets\\images\\benh1.jpg"
+    },
+    {
+      "Id": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChuanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa\\wwwroot\\images\\benh2.jpg",
+      "PackagePath": "staticwebassets\\images\\benh2.jpg"
+    },
+    {
+      "Id": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChuanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa\\wwwroot\\images\\benh3.jpg",
+      "PackagePath": "staticwebassets\\images\\benh3.jpg"
+    },
+    {
+      "Id": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChuanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa\\wwwroot\\images\\benh4.jpg",
+      "PackagePath": "staticwebassets\\images\\benh4.jpg"
+    },
+    {
+      "Id": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChuanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa\\wwwroot\\images\\benh5.png",
+      "PackagePath": "staticwebassets\\images\\benh5.png"
+    },
+    {
+      "Id": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChuanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa\\wwwroot\\images\\benh6.png",
+      "PackagePath": "staticwebassets\\images\\benh6.png"
+    },
+    {
+      "Id": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChuanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa\\wwwroot\\images\\benhca.jpg",
+      "PackagePath": "staticwebassets\\images\\benhca.jpg"
+    },
+    {
+      "Id": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChuanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa\\wwwroot\\images\\tải xuống (1).jfif",
+      "PackagePath": "staticwebassets\\images\\tải xuống (1).jfif"
+    },
+    {
+      "Id": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChuanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa\\wwwroot\\images\\tải xuống.jfif",
+      "PackagePath": "staticwebassets\\images\\tải xuống.jfif"
+    },
+    {
+      "Id": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChuanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa\\wwwroot\\images\\uploaded-ngocanhbna-2018_03_19-_46565350_1932018.jpg",
+      "PackagePath": "staticwebassets\\images\\uploaded-ngocanhbna-2018_03_19-_46565350_1932018.jpg"
+    },
+    {
+      "Id": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChuanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa\\wwwroot\\images\\uploaded-ngocanhbna-2018_03_19-_516754345_1932018.jpg",
+      "PackagePath": "staticwebassets\\images\\uploaded-ngocanhbna-2018_03_19-_516754345_1932018.jpg"
+    },
+    {
+      "Id": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChuanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa\\wwwroot\\images\\uploaded-ngocanhbna-2018_03_19-_614039250_1932018.jpg",
+      "PackagePath": "staticwebassets\\images\\uploaded-ngocanhbna-2018_03_19-_614039250_1932018.jpg"
+    },
+    {
+      "Id": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChuanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa\\wwwroot\\images\\uploaded-ngocanhbna-2018_03_19-_66870346_1932018.jpg",
+      "PackagePath": "staticwebassets\\images\\uploaded-ngocanhbna-2018_03_19-_66870346_1932018.jpg"
+    },
+    {
+      "Id": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChuanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa\\wwwroot\\images\\uploaded-ngocanhbna-2018_03_19-_7389024_1932018.jpg",
+      "PackagePath": "staticwebassets\\images\\uploaded-ngocanhbna-2018_03_19-_7389024_1932018.jpg"
+    },
+    {
       "Id": "D:\\HuynhHuuDuc_2001207422\\DoAnChuyenNganh\\ChuanDoanBenhCa\\ChanDoanBenhCa\\ChanDoanBenhCa\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

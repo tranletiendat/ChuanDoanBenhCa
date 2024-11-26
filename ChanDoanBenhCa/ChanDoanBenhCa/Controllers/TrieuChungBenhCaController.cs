@@ -16,6 +16,13 @@ namespace ChanDoanBenhCa.Controllers
 
         public IActionResult Index()
         {
+            // Lấy thông tin từ Session
+            var quyen = HttpContext.Session.GetString("IsAdmin");
+
+            if (string.IsNullOrEmpty(quyen) || quyen != "admin")
+            {
+                return RedirectToAction("Login", "Account");
+            }
             var data = _quanLyBenhCaContext.TrieuChungBenhCa!.ToList();
             return View(data);
         }
@@ -113,6 +120,11 @@ namespace ChanDoanBenhCa.Controllers
         public ActionResult Delete(int Id)
         {
             var TrieuChungBenhCa = _quanLyBenhCaContext.TrieuChungBenhCa?.Where(n => n.MaTcbc == Id).FirstOrDefault();
+            var ketQuaChuanDoan = _quanLyBenhCaContext.KetQuaChuanDoan!
+                .Where(k => k.MaTcbc == Id) // Sử dụng Id của BenhCa để tìm các bản ghi liên quan
+                .ToList();
+
+            _quanLyBenhCaContext.KetQuaChuanDoan!.RemoveRange(ketQuaChuanDoan);
             _quanLyBenhCaContext.TrieuChungBenhCa?.Remove(TrieuChungBenhCa!);
             _quanLyBenhCaContext.SaveChanges();
             return RedirectToAction("Index");

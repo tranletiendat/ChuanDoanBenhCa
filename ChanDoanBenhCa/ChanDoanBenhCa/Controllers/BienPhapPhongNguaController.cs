@@ -16,6 +16,13 @@ namespace ChanDoanBienPhapPhongNgua.Controllers
 
         public IActionResult Index()
         {
+            // Lấy thông tin từ Session
+            var quyen = HttpContext.Session.GetString("IsAdmin");
+
+            if (string.IsNullOrEmpty(quyen) || quyen != "admin")
+            {
+                return RedirectToAction("Login", "Account");
+            }
             var data = _quanLyBenhCaContext.BienPhapPhongNgua!.ToList();
             return View(data);
         }

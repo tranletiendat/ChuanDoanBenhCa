@@ -52,9 +52,13 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "Microsoft.AspNetCore.Session": {
+            "ClosedXML": {
               "target": "Package",
-              "version": "[2.2.0, )"
+              "version": "[0.104.2, )"
+            },
+            "CloudinaryDotNet": {
+              "target": "Package",
+              "version": "[1.26.2, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",

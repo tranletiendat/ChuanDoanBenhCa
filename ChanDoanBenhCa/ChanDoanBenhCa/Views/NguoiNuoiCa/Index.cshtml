@@ -61,8 +61,12 @@
                             @Html.DisplayFor(modelItem => item.MaNd)
                         </td>
                         <td>
-                            @Html.ActionLink("Sửa", "Edit", new { id = item.MaNnc }, new { @class = "btn btn-warning btn-sm" }) |
-                            <a href="#" onclick="if (confirm('Bạn có chắc chắn muốn xóa không?') == true) { location.href = '/NguoiNuoiCa/Delete?id=@item.MaNnc' }" class="btn btn-light"><i class="fa fa-heart"></i>Xóa</a>
+                            <a asp-action="Edit" asp-route-id="@item.MaNnc" class="btn btn-warning btn-sm">
+                                <i class="fa fa-pencil-alt"></i> Sửa
+                            </a> |
+                            <a href="#" onclick="if (confirm('Bạn có chắc chắn muốn xóa không?') == true) { location.href = '/NguoiNuoiCa/Delete?id=@item.MaNnc' }" class="btn btn-danger btn-sm">
+                                <i class="fa fa-trash"></i> Xóa
+                            </a>
                         </td>
                     </tr>
                 }

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
+﻿
 namespace ChanDoanBenhCa.Models;
 
 public partial class BenhCa
@@ -20,4 +18,8 @@ public partial class BenhCa
     public virtual ICollection<TinTucDichBenh> TinTucDichBenhs { get; set; } = new List<TinTucDichBenh>();
 
     public virtual ICollection<KetQuaChuanDoan> KetQuaChuanDoan { get; set; } = new List<KetQuaChuanDoan>();
+
+    public virtual ICollection<AnhBenhCa> AnhBenhCas { get; set; } = new List<AnhBenhCa>();
+
+    public virtual ICollection<LichSuChuanDoan> LichSuChuanDoans { get; set; } = new List<LichSuChuanDoan>();
 }

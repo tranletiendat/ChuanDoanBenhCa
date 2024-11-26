@@ -19,12 +19,6 @@
         <p>
             <a asp-action="Create" class="btn btn-success mb-3">Tạo Mới</a>
         </p>
-        <p>
-            <a asp-action="Search" class="btn btn-success mb-3">Tìm kiếm</a>
-        </p>
-        <p>
-            <a asp-action="SearchByTrieuChung" class="btn btn-success mb-3">Chẩn đoán</a>
-        </p>
 
 
         <!-- Bảng danh sách bệnh cá -->
@@ -33,6 +27,7 @@
                 <tr>
                     <th>@Html.DisplayNameFor(model => model.TenBc)</th>
                     <th>@Html.DisplayNameFor(model => model.MoTaChiTietBenhCa)</th>
+                    <th>@Html.DisplayNameFor(model => model.AnhBenhCas)</th>
                     <th></th>
                 </tr>
             </thead>
@@ -43,8 +38,15 @@
                         <td>@Html.DisplayFor(modelItem => item.TenBc)</td>
                         <td>@Html.DisplayFor(modelItem => item.MoTaChiTietBenhCa)</td>
                         <td>
+                            @foreach (var anh in item.AnhBenhCas)
+
+                            {
+                                <img src="@anh.DuongDanAnh" alt="Ảnh Bệnh Cá" width="100" height="100" />
+                            }
+                        </td>
+                        <td>
                             <!-- Nút sửa và xóa -->
-                            @Html.ActionLink("Sửa", "Edit", new { id = item.MaBc }, new { @class = "btn btn-warning btn-sm" }) |
+                            @Html.ActionLink("Sửa", "Edit", new { id = item.MaBc }, new { @class = "btn btn-warning btn-sm" })
                             <a href="#" onclick="if (confirm('Bạn có chắc chắn muốn xóa không?') == true) { location.href = '/BenhCa/Delete?id=@item.MaBc' }" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Xóa</a>
                         </td>
                     </tr>

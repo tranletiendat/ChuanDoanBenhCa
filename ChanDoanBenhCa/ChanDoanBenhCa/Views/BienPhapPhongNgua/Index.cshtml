@@ -35,7 +35,7 @@
                         <td>@Html.DisplayFor(modelItem => item.TenBppn)</td>
                         <td>@Html.DisplayFor(modelItem => item.MaBenhCa)</td>
                         <td>
-                            <a href="@Url.Action("Edit", "BienPhapPhongNgua", new { id = item.MaBppn })" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Sửa</a> |
+                            <a href="@Url.Action("Edit", "BienPhapPhongNgua", new { id = item.MaBppn })" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Sửa</a>
                             <a href="#" onclick="if (confirm('Bạn có chắc chắn muốn xóa không?') == true) { location.href = '/BienPhapPhongNgua/Delete?id=@item.MaBppn' }" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Xóa</a>
                         </td>
                     </tr>
