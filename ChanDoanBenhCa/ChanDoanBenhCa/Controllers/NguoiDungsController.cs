@@ -1,4 +1,5 @@
 ﻿using ChanDoanBenhCa.Models;
+using DocumentFormat.OpenXml.Office2013.Excel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,7 +19,7 @@ namespace ChanDoanBenhCa.Controllers
             // Lấy thông tin từ Session
             var quyen = HttpContext.Session.GetString("IsAdmin");
 
-            if (string.IsNullOrEmpty(quyen) || quyen != "admin")
+            if (string.IsNullOrWhiteSpace(quyen) || quyen != "admin")
             {
                 return RedirectToAction("Login", "Account");
             }
@@ -111,6 +112,37 @@ namespace ChanDoanBenhCa.Controllers
         public ActionResult Delete(int Id)
         {
             var nguoiDung = _quanLyBenhCaContext.NguoiDung?.Where(n => n.MaNd == Id).FirstOrDefault();
+
+            var nguoiNuoiCa = _quanLyBenhCaContext.NguoiNuoiCa!
+                .Where(k => k.MaNd == Id)
+                .ToList();
+
+            foreach(var old in nguoiNuoiCa)
+            {
+                var baiDang = _quanLyBenhCaContext.BaiDang!
+                    .Where(k => k.MaNnc == old.MaNnc) // Sử dụng Id của BenhCa để tìm các bản ghi liên quan
+                    .ToList();
+
+                _quanLyBenhCaContext.BaiDang!.RemoveRange(baiDang);
+
+                var danCa = _quanLyBenhCaContext.DanCa!
+                    .Where(k => k.MaNnc == old.MaNnc) // Sử dụng Id của BenhCa để tìm các bản ghi liên quan
+                    .ToList();
+
+                foreach (var item in danCa)
+                {
+                    var lichSuBenh = _quanLyBenhCaContext.LichSuBenh!
+                    .Where(k => k.MaDc == item.MaDc) // Sử dụng Id của BenhCa để tìm các bản ghi liên quan
+                    .ToList();
+
+                    _quanLyBenhCaContext.LichSuBenh!.RemoveRange(lichSuBenh);
+                }
+
+                _quanLyBenhCaContext.DanCa!.RemoveRange(danCa);
+            }
+
+            _quanLyBenhCaContext.NguoiNuoiCa!.RemoveRange(nguoiNuoiCa);
+
             _quanLyBenhCaContext.NguoiDung?.Remove(nguoiDung!);
             _quanLyBenhCaContext.SaveChanges();
             return RedirectToAction("Index");

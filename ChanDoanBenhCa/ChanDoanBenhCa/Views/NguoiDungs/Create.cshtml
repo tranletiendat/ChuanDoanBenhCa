@@ -40,7 +40,10 @@
                     <!-- Nhập quyền người dùng -->
                     <div class="form-group mb-3">
                         <label asp-for="QuyenNguoiDung" class="control-label">Quyền Người Dùng</label>
-                        <input asp-for="QuyenNguoiDung" class="form-control" placeholder="Nhập quyền người dùng" />
+                        <select asp-for="QuyenNguoiDung" class="form-control">
+                            <option value="admin">admin</option>
+                            <option value="user">user</option>
+                        </select>
                         <span asp-validation-for="QuyenNguoiDung" class="text-danger"></span>
                     </div>
 

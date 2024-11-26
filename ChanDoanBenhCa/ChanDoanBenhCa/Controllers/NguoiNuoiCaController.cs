@@ -136,6 +136,28 @@ namespace ChanDoanBenhCa.Controllers
         public ActionResult Delete(int Id)
         {
             var NguoiNuoiCa = _quanLyBenhCaContext.NguoiNuoiCa?.Where(n => n.MaNnc == Id).FirstOrDefault();
+
+            var baiDang = _quanLyBenhCaContext.BaiDang!
+                .Where(k => k.MaNnc == Id) // Sử dụng Id của BenhCa để tìm các bản ghi liên quan
+                .ToList();
+
+            _quanLyBenhCaContext.BaiDang!.RemoveRange(baiDang);
+
+            var danCa = _quanLyBenhCaContext.DanCa!
+                .Where(k => k.MaNnc == Id) // Sử dụng Id của BenhCa để tìm các bản ghi liên quan
+                .ToList();
+
+            foreach(var item in danCa)
+            {
+                var lichSuBenh = _quanLyBenhCaContext.LichSuBenh!
+                .Where(k => k.MaDc == item.MaDc) // Sử dụng Id của BenhCa để tìm các bản ghi liên quan
+                .ToList();
+
+                _quanLyBenhCaContext.LichSuBenh!.RemoveRange(lichSuBenh);
+            }
+
+            _quanLyBenhCaContext.DanCa!.RemoveRange(danCa);
+
             _quanLyBenhCaContext.NguoiNuoiCa?.Remove(NguoiNuoiCa!);
             _quanLyBenhCaContext.SaveChanges();
             return RedirectToAction("Index");
