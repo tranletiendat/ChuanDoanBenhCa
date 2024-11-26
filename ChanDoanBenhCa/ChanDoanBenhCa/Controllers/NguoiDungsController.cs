@@ -19,7 +19,7 @@ namespace ChanDoanBenhCa.Controllers
             // Lấy thông tin từ Session
             var quyen = HttpContext.Session.GetString("IsAdmin");
 
-            if (string.IsNullOrEmpty(quyen) || quyen != "admin")
+            if (string.IsNullOrWhiteSpace(quyen) || quyen != "admin")
             {
                 return RedirectToAction("Login", "Account");
             }

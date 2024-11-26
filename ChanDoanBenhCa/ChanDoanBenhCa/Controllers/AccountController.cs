@@ -10,7 +10,6 @@ namespace ChanDoanBenhCa.Controllers
     public class AccountController : Controller
     {
         private readonly QuanLyBenhCaContext _quanLyBenhCaContext;
-        private static List<NguoiDung> _users = new List<NguoiDung>();
 
         public AccountController(QuanLyBenhCaContext quanLyBenhCaContext)
         {
@@ -28,7 +27,9 @@ namespace ChanDoanBenhCa.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (_users.Any(u => u.TenNd == model.Username))
+                var user = _quanLyBenhCaContext.NguoiDung!.Where(n => n.TenNd == model.Username).FirstOrDefault();
+
+                if (user != null)
                 {
                     ModelState.AddModelError("", "Tên đăng nhập đã tồn tại.");
                     return View(model);
@@ -40,8 +41,8 @@ namespace ChanDoanBenhCa.Controllers
                 newbie.MaNd = maxMaNd + 1;
                 newbie.TenNd = model.Username;
                 newbie.MatKhau = HashPassword(model.Password!);
-                newbie.QuyenNguoiDung = "users";
-                _quanLyBenhCaContext.Add(newbie);
+                newbie.QuyenNguoiDung = "user";
+                _quanLyBenhCaContext.NguoiDung!.Add(newbie);
                 await _quanLyBenhCaContext.SaveChangesAsync();
 
                 TempData["SuccessMessage"] = "Đăng ký thành công.";
