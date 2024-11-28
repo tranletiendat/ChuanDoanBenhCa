@@ -16,13 +16,6 @@ namespace ChanDoanBenhCa.Controllers
 
         public IActionResult Index()
         {
-            // Lấy thông tin từ Session
-            var quyen = HttpContext.Session.GetString("IsAdmin");
-
-            if (string.IsNullOrEmpty(quyen) || quyen != "admin")
-            {
-                return RedirectToAction("Login", "Account");
-            }
             var data = _quanLyBenhCaContext.DanCa!.ToList();
             return View(data);
         }
